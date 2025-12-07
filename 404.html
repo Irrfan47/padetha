@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Page Not Found</title>
+    <script type="text/javascript">
+        // ** GitHub Pages Single-Page App Redirect **
+
+        // 1. Get the segment of the URL after the domain name
+        var pathSegmentsToKeep = 1; // 1 means we keep "/padetha/"
+
+        var l = window.location;
+        var pathname = l.pathname.split('/');
+
+        // Remove the non-existent path segment from the current URL path
+        pathname.splice(0, pathSegmentsToKeep);
+
+        // 2. Construct the new URL: Base URL + Hash (#) + Remaining Path
+        l.replace(
+            l.protocol + '//' + l.hostname +
+            (l.port ? ':' + l.port : '') +
+            l.pathname.slice(0, 1 + pathSegmentsToKeep) +  // This keeps /padetha-heritage-project/
+            '#' +
+            pathname.join('/').replace(/^\//, '') // This adds the deep link path to the hash
+        );
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
